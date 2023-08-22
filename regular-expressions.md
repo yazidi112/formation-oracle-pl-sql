@@ -87,16 +87,19 @@ select regexp_count('my birthdate is 10-10-2006','[[:alpha:]]') from dual;
 
 _______________________
 Partie 4:
+
 Requête 1:
 recupere la position de laposition de la premiere lettre majuscule
 select regexp_instr('my Name is Omar','[[:upper:]]') from dual;
+
 Requête 2:
 REcupere la premiere lettre a
 select regexp_instr('hello my name is imran','a') from dual;
 
  
-
+_________________________
 Partie 5:
+
 Cette fonction permet de récupérer la sous chaine de caractère correspond à une expression régulière
 
 Requête 1:
