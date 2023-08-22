@@ -94,6 +94,15 @@ Requête 2:
 REcupere la premiere lettre a
 select regexp_instr('hello my name is imran','a') from dual;
 
+ 
 
+Partie 5:
+Cette fonction permet de récupérer la sous chaine de caractère correspond à une expression régulière
+
+Requête 1:
+
+Récupérer la sous chaine commençant par , puis n'importe quel caractère excepte , un ou plusieurs fois puis terminant par ,.
+SELECT REGEXP_SUBSTR('immeuble 14, hay salam, casablanca',',[^,]+,') FROM DUAL;
+cette requête donne: ,casablanca,
 
 
