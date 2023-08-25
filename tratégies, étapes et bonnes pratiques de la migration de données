@@ -1,0 +1,119 @@
+
+
+
+ 
+
+Les stratégies, étapes et bonnes pratiques de la migration de données 
+
+
+
+Imran YAZIDI
+
+
+
+
+Ce document est...
+
+
+
+Sommaire
+
+1. Que ce que la migration de données ?	3
+2. Stratégies de migration de données	4
+3. Formes des migration de données	5
+4. Bonnes pratiques de migration de données	6
+5. Etapes de migration de données	7
+
+
+
+
+1.Que ce que la migration de données ?
+
+
+La migration des données est un processus de transfert nécessaire et courant. Il s’agit de transférer des données d’un lieu vers d’autres, l’entreprise souhaitant faire cette migration doit se doter d’une stratégie robuste afin de reussir son projet.
+
+D’après les statistiques, environ 50 % de tous les projets de migration des données dépasseront le budget prévu à cause d’une stratégie ou d’une exécution défectueuse. Heureusement, il existe  plusieurs outils et techniquesqui permet de rendre la migration des données plus fluide et moins coûteuse. 
+
+
+2.Stratégies de migration de données
+La migration de données doit être correctement effectuée parce que les migrations incorrectes peuvent créer des problèmes ou des inexactitudes. La plupart des stratégies relèvent de l'une de ces deux catégories : « Big Bang » ou « Trickle » (goutte à goutte).
+
+Migration « Big Bang »
+
+Dans une migration Big Bang, l'intégralité du transfert est effectuée sur une période limitée. Les systèmes en production connaissent des temps d'arrêt lorsque les données passent en traitement ETL et sont transférées vers la nouvelle base de données.
+
+L'avantage de cette méthode est bien sûr que la migration est relativement rapide, étant regroupée dans un évènement condensé. La pression par contre peut être intense, car les activités de la société doivent se poursuivre alors que l'une des ressources est indisponible. 
+
+Il est conseillé de répéter la migration pour tester la procédure, avant de la lancer réellement.
+
+Migration « Trickle »
+
+Les migrations Trickle au contraire effectuent la migration par phases. Lors de l'implémentation, le nouveau système et l'ancien sont exécutés en parallèle, ce qui évite les temps d'arrêt ou interruptions opérationnelles. Les processus s'exécutant en temps réel peuvent migrer les données en continu.
+
+La conception de ces implémentations est beaucoup plus complexe que celle d'une approche Big Bang. Cependant, la complexité, si elle est bien gérée, permet en général de réduire les risques plutôt que de les augmenter.
+
+
+3.Formes des migration de données
+Migration du stockage. 
+
+Elle consiste à transférer des données d’un appareil de stockage à un autre, neuf ou différent, sur site ou dans le cloud. Bien que la migration du stockage soit la plus simple à première vue, cela ne signifie pas que vous pouvez vous contenter de copier et coller 5 To de données vers un nouveau disque. Pour que la migration réussisse, vous devez la planifier et l’exécuter avec soin, et il vous faudra bien appréhender où vont les données et qui devrait y avoir accès.
+
+Migration de base de données. 
+
+Elle implique généralement la mise à niveau d’un moteur de base de données et le déplacement de l’ensemble des fichiers de la base de données vers un nouvel appareil. La migration d’une base de données est généralement plus complexe que la migration du stockage, principalement parce que vous avez affaire à des volumes de données plus importants dans des formats pouvant être différents. Vous devrez sauvegarder la base de données, la séparer du moteur et migrer les fichiers vers un nouveau moteur. Ces fichiers peuvent ensuite être restaurés dans la nouvelle base de données depuis le nouvel emplacement.
+
+Migration d’application. 
+
+Elle peut associer la migration de base de données et la migration du stockage. Les applications logicielles comportent généralement des bases de données, des dossiers et des fichiers d’installation ; lorsque vous déplacez ces applications vers un autre serveur, par exemple, c’est tout le contenu qui doit être transféré. En outre, il vous faudra peut-être collaborer avec l’éditeur de l’application pour suivre des étapes supplémentaires spécifiques à ce logiciel, afin de garantir le bon déroulement de la migration et le bon fonctionnement de l’application par la suite.
+
+
+4.Bonnes pratiques de migration de données
+Sauvegardez les données avant l'exécution. Vous ne pouvez pas vous permettre de perdre les données en cas de problème durant l'implémentation. Vérifiez qu'une sauvegarde existe, et qu'elle a été testée, avant de lancer la migration.
+Respectez la stratégie. Il arrive trop souvent que des responsables définissent un plan, puis l'abandonnent lorsque les choses se passent « trop » bien, ou au contraire deviennent incontrôlables. La migration peut être compliquée, et cela peut parfois être frustrant. Soyez prêt à affronter cette réalité et tenez-vous-en au plan.
+Testez, testez, testez. Lors des phases de planification et de conception, et tout au long de l'implémentation et de la maintenance, testez la migration des données pour vous assurer que le résultat vous conviendra.
+
+
+
+5.Etapes de migration de données
+Chaque stratégie a ses spécificités, selon les besoins et objectifs de chaque entreprise, mais un plan de migration des données doit généralement suivre un modèle commun facilement reconnaissable :
+
+1.Explorer et évaluer la source:
+
+Avant de migrer les données, vous devez les connaître (et les comprendre), et savoir comment elles pourront s'intégrer dans le système cible. Vous devez avoir une idée assez précise du volume et du contenu.
+
+Certaines données auront peut-être de nombreux champs, dont certains n'auront pas besoin d'être mappés dans le système cible. Certains champs peuvent être vides dans une source, et les informations correspondantes devront donc être récupérées d'un autre emplacement. Déterminez ce qui doit être migré, ce qui peut être ignoré et ce qui est manquant.
+
+Au-delà des exigences concernant les champs à transférer, vous devez également effectuer un audit des données contenues dans ces champs. Si certains champs sont incomplets ou incorrects, s'il manque de nombreux éléments de données ou si vous décelez d'autres problèmes, vous devrez peut-être envisager de ne pas migrer ces données.
+
+Une entreprise qui ignore cette étape de vérification et estime avoir une compréhension suffisante des données peut perdre beaucoup de temps et d'argent lors de la migration. Pire encore, elle pourrait rencontrer une erreur critique lors du mapping des données qui stopperait toute progression.
+
+2.Définir et concevoir la migration:
+
+C'est lors de la phase de conception que les entreprises choisissent leur type de migration : Big Bang ou Trickle. C'est également à ce moment que l'architecture technique de la solution et les détails des processus de migration sont définis.
+
+En fonction de la conception, des données à récupérer et du système cible, vous pouvez commencer à définir un planning et à anticiper les soucis éventuels. À la fin de cette étape, l'ensemble du projet doit être clairement documenté.
+
+Lors de la préparation, la sécurité des données doit absolument être prise en compte. La protection des données sensibles doit être assurée à chaque étape du plan.
+
+3. Compiler la solution de migration:
+Vous pouvez être tenté d'aborder la migration avec une approche de développement minimaliste. Cependant, la migration ne sera exécutée qu'une seule fois : vous n'avez donc pas le droit à l'erreur. Une solution fréquemment utilisée consiste à diviser les données en sous-ensembles et à compiler une seule catégorie à la fois, avant de la tester. Pour une société travaillant sur une très grande migration, compiler et tester en parallèle est très efficace.
+
+3.Effectuer un test avec des données réelles:
+
+Les tests ne sont pas terminés tant que le code n'a pas été testé en phase de compilation. Il est important d'utiliser des données réelles pour les tests, afin de vérifier que l'implémentation est correcte et que l'application est complète.
+
+4.Lancer la migration:
+
+Après les derniers tests, l'implémentation peut avoir lieu, comme défini dans le plan.
+
+5.Auditer:
+
+Une fois l'implémentation effectuée, vous devez mettre en place un système d'audit des données pour vérifier que la migration est correcte.
+
+
+
+6.Références
+
+https://www.talend.com/fr/resources/understanding-data-migration-strategies-best-practices/ 
+https://www.varonis.com/fr/blog/migration-des-donnees
+https://docs.vmware.com/fr/VMware-vSphere/7.0/com.vmware.vcenter.upgrade.doc/GUID-BEA620A6-07CC-496D-A046-356C57958A01.html 
