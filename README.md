@@ -1,12 +1,12 @@
 # formation-oracle-pl-sql
-Compte rendu du 18/08/2023
----------------------------------------------------------------------
-Formation sur: Système de base de données Oracle
-Par: Imran YAZIDI
----------------------------------------------------------------------
-Dans ce document vous allez trouvé 10 programmes créés sous oracle 11 
-afin de comprendre le principe de fonctionnement de langage PL SQL
----------------------------------------------------------------------
+
+
+Programme 0: Hello wrold
+
+BEGIN
+dbms_output.put_line('Hello world..');
+END;
+
 Programme 1:
 
 Dans cet exemple j'ai créé un simple programme qui affiche l'adresse d'une personne en utilisant la notion de record.
