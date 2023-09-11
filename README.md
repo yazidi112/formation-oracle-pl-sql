@@ -245,4 +245,16 @@ when no_data_found then
 null;
 end;
 
+Programme 12:
+
+Ecrire dans un fichier text
+
+declare
+  vFile utl_file.file_type;
+begin
+  vFile := utl_file.fopen('DIR__DATA' ,'imran.txt','w'); -- w is write. This returns file handle
+  utl_file.put(vFile,'hello all'); -- note use of file handle vFile
+  utl_file.fclose(vFile); -- note use of file handle vFile
+end;
+
 
