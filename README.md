@@ -224,3 +224,25 @@ pkg.p1(2);
 pkg.p2(4);
 END
 
+Programme 11:
+
+Lire des données apartir d'un fichier et les afficher
+
+declare
+dir varchar2(255):='DIR__DATA';
+file varchar2(255):='doc.txt';
+l_file UTL_FILE.file_type;
+l_text varchar2(32767);
+begin
+l_file:= UTL_FILE.fopen(dir,file,'r');
+loop
+UTL_FILE.get_line(l_file,l_text);
+DBMS_OUTPUT.put_line(l_text);
+end loop;
+UTL_FILE.fclose(l_file);
+exception
+when no_data_found then
+null;
+end;
+
+
