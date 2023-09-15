@@ -1,0 +1,109 @@
+-- Creation des tables
+create table employe(id number, name varchar(255), id_dep number);
+create table departement (id_dep number, title varchar(255));
+
+-- Ajout des clés primaire et clés étrangeres
+alter table employe add constraint employe_pk primary key (id);
+alter table departement add constraint departement_pk primary key (dep_id);
+alter table employe add constraint employe_fk foreign key (dep_id) references departement (dep_id);
+ 
+-- Afficher la structure des tables
+desc employe;
+desc departement;
+
+-- Inserer des données
+insert all into departement values (1,'it') 
+ into departement values (2,'rh') 
+ select 1 from dual;
+ 
+insert all into employe values (1,'imran',1) 
+ into employe values (2,'ayoub',1) 
+ into employe values(3,'imane',2)
+ select 1 from dual;
+ 
+insert into departement values (3,'accounting');
+insert into employe values (4,'omar',null);
+ 
+ -- Afficher les données de chaque table
+ select * from employe;
+ select * from departement;
+ 
+ 
+ -- jointures
+ -- 1. cross join
+ 
+ select * 
+ from employe,departement
+ 
+ -- or
+ 
+select *
+from employe 
+cross join departement;
+
+-- 2. natural join
+
+select *
+from employe
+natural join departement;
+
+-- 3. join table using column
+
+select *
+from employe
+join departement
+using (dep_id);
+
+-- 4. Join table on
+
+SELECT *
+FROM employe,departement
+WHERE  employe.dep_id=departement.dep_id
+
+-- or 
+SELECT *
+FROM employe
+JOIN departement
+ON employe.dep_id=departement.dep_id;
+
+-- 5. Left Join
+
+SELECT *
+FROM employe,departement
+WHERE employe.dep_id(+)=departement.dep_id
+
+-- or 
+SELECT *
+FROM employe
+LEFT JOIN departement
+ON employe.dep_id=departement.dep_id;
+
+-- 6. Rigth Join
+
+SELECT *
+FROM employe,departement
+WHERE employe.dep_id=departement.dep_id(+)
+
+-- or 
+SELECT *
+FROM employe
+RIGHT JOIN departement
+ON employe.dep_id=departement.dep_id;
+
+-- 7. Full Join
+
+SELECT *
+FROM employe
+FULL JOIN departement
+ON employe.dep_id=departement.dep_id;
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
