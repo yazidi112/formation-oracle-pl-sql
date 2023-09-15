@@ -1,0 +1,74 @@
+-- IN, ANY, ALL
+
+select * 
+from employe;
+---------------------------------------
+select * 
+from employe 
+where dep_id=1 or dep_id=2;
+
+-- or 
+select *
+from employe
+where dep_id in (1,2);
+
+-- or
+select *
+from employe
+where dep_id = any (1,2);
+
+----------------------------------------------------
+
+select * 
+from employe 
+where dep_id=1 and dep_id=2;
+
+-- or 
+
+select *
+from employe
+where dep_id = all(1,2);
+------------------------------------
+select * 
+from employe 
+where dep_id>0 and dep_id>1;
+
+-- or 
+
+select * 
+from employe 
+where dep_id > all(0,1);
+--------------------------------------------
+
+select * 
+from employe 
+where dep_id<2 and dep_id<3;
+
+-- or
+
+select * 
+from employe 
+where dep_id< all(2,3);
+
+--------------------------------------
+
+select *
+from employe
+where dep_id> 1 or dep_id>2;
+
+-- or
+
+select *
+from employe
+where dep_id > any(1,2);
+-------------------------
+
+select *
+from employe
+where dep_id< 1 or dep_id<2;
+
+-- or
+
+select *
+from employe
+where dep_id < any(1,2);
