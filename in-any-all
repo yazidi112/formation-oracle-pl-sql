@@ -72,3 +72,15 @@ where dep_id< 1 or dep_id<2;
 select *
 from employe
 where dep_id < any(1,2);
+
+------------------------------------
+
+SELECT * 
+FROM departement dept
+WHERE EXISTS (SELECT 1 FROM employe emp WHERE emp.dep_id=dept.dep_id);
+
+-- or
+
+SELECT *
+FROM departement
+WHERE dep_id in (SELECT DISTINCT dep_id FROM employe);
