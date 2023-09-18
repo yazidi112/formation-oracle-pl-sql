@@ -1,0 +1,23 @@
+-- 1. UNION
+
+SELECT id,name FROM employe
+UNION
+SELECT id,name FROM manager;
+
+-- 2. UNION ALL
+
+SELECT id,name FROM employe
+UNION ALL
+SELECT id,name FROM manager;
+
+-- 3. INTERSECT
+
+SELECT id,name FROM employe
+INTERSECT
+SELECT id,name FROM manager;
+
+-- 4. MINUS
+
+SELECT id,name FROM employe
+MINUS
+SELECT id,name FROM manager;
