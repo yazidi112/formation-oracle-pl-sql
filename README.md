@@ -7,7 +7,7 @@ BEGIN
 dbms_output.put_line('Hello world..');
 END;
 
-Programme 1:
+**Programme 1:**
 
 Dans cet exemple j'ai créé un simple programme qui affiche l'adresse d'une personne en utilisant la notion de record.
 le record permet de regroupper plusieurs variables dans une seule structure:
@@ -22,7 +22,7 @@ dbms_output.put_line('Your adress is: '||myadress.city||' '|| myadress.country);
 END;
 
 -------------------------
-Programme 2:
+**Programme 2:**
 
 Ici, j'ai crée les trois types de boucle sous oracle simple et qui affiche les chiffre allons de 1 à 10.
 
@@ -63,7 +63,7 @@ END;
 
 
 ------------------------
-Programme 3:
+**Programme 3:**
 
 là, j'ai créé un simple programme qui rempli un enregistrement par le nom d'utilisateur et la date de creation à partir
 de la table demo_users, puis affiche le nom d'utilisateur.
@@ -79,7 +79,7 @@ dbms_output.put_line(myrow.username);
 END;
 
 ---------------------------
-Programme 4:
+**Programme 4:**
 
 Dans cet example j'ai créé un curseur qui lit la liste des utilisateurs un par un
  et affiche leur nom d'utilisateur en majuscule.
@@ -100,7 +100,7 @@ close c;
 END;
 
 ----------------------------
-Programme 5:
+**Programme 5:**
 
 Dans cet exemple j'ai utilisé la notion case dans un simple programme qui, selon la valeur existe dans 
 une variable nommé a, affiche true si sa valeur vaux 1,false si sa valeur vaux 0 ou undefined sinon;
@@ -117,7 +117,7 @@ end case;
 END;
 
 ---------------------------
-Programme 6:
+**Programme 6:**
 
 Dans cet exemple j'ai créé une procédure stocké qui affiche la somme de deux nombres données en paramétres.
 
@@ -139,7 +139,7 @@ p(2,3);
 END;
 
 -----------------------
-Programme 7:
+**Programme 7:**
 
 Dans ce programme j'ai crée une fonction qui retourne le double d'un nombre donée en paramètre.
 
@@ -162,7 +162,7 @@ dbms_output.put_line(b);
 END;
 
 ------------------------
-Programme 8:
+**Programme 8:**
 
 Dans ce programme j'ai créé une exception de type utilisateur qui se déclanche si une variable a vaux 0
 et affiche un message à l'utilisateur.
@@ -180,7 +180,7 @@ END;
 
 
 ------------------------
-Programme 9:
+**Programme 9:**
 
 Dans cet exemple j'ai crée un trigger qui se déclenche avant l modification d'une table produits et 
 affiche la nouvelle et l'ancienne valeur de champ titre:
@@ -195,7 +195,7 @@ end;
 
 ----------------------
 
-Programme 10:
+**Programme 10:**
 
 Dans cet exemple j'ai créé un package qui regroupe deux procédures p1 et p2:
 
@@ -224,7 +224,7 @@ pkg.p1(2);
 pkg.p2(4);
 END
 
-Programme 11:
+**Programme 11:**
 
 Lire des données apartir d'un fichier et les afficher
 
@@ -245,7 +245,7 @@ when no_data_found then
 null;
 end;
 
-Programme 12:
+**Programme 12:**
 
 Ecrire dans un fichier text
 
