@@ -1,0 +1,43 @@
+-- SESSION 1
+
+SELECT * 
+FROM employe;
+
+SELECT * 
+FROM employe
+FOR UPDATE NOWAIT;
+
+UPDATE employe set name='ABU MOHAMED' WHERE id=1;
+UPDATE employe set name='ABU Khaled' WHERE id=1;
+SAVEPOINT A;
+UPDATE employe set name='ABU Meryem' WHERE id=1;
+UPDATE employe set name='ABU Moussa' WHERE id=1;
+
+ROLLBACK TO SAVEPOINT A;
+COMMIT;
+
+SELECT *
+FROM employe e, departement d
+WHERE e.dep_id=d.dep_id
+FOR UPDATE;
+
+SELECT *
+FROM employe e, departement d
+WHERE e.dep_id=d.dep_id
+FOR UPDATE of title;
+
+-- Auto-commit after DDL Statement
+UPDATE departement SET title = 'design' WHERE dep_id=1;
+CREATE TABLE dep_copy AS SELECT * FROM departement;
+
+----------------------------------------------------------
+  -- SESSION 2
+SELECT * FROM employe;
+SELECT * FROM departement;
+
+UPDATE employe SET name='ABU Meryem' WHERE id=1;
+
+UPDATE departement set title = 'dev' WHERE dep_id=1;
+
+COMMIT;
+ROLLBACK;
