@@ -5,6 +5,14 @@ FROM employe;
 
 SELECT * 
 FROM employe
+FOR UPDATE;
+
+SELECT * 
+FROM employe
+FOR UPDATE WAIT 10;
+
+SELECT * 
+FROM employe
 FOR UPDATE NOWAIT;
 
 UPDATE employe set name='ABU MOHAMED' WHERE id=1;
