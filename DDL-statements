@@ -1,0 +1,24 @@
+-- DDL STATEMENT
+CREATE TABLE city (
+id number primary key,
+city varchar2(100)
+);
+
+DESC city;
+
+CREATE TABLE person (
+id number,
+name varchar2(100) NOT NULL,
+birthdate date,
+email varchar2(100),
+salary number DEFAULT 3000,
+sexe char(1),
+id_city number,
+CONSTRAINT person_pk PRIMARY KEY(id),
+CONSTRAINT email_uq unique(email),
+CONSTRAINT sexe_ck check (sexe in ('H','F')),
+CONSTRAINT salary_ck CHECK (salary > 3000),
+CONSTRAINT city_fk FOREIGN KEY(id_city) references city(id)
+);
+
+DESC person;
