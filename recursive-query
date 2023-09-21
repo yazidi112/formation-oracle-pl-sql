@@ -1,0 +1,3 @@
+SELECT p.name as employe,m.name as manger_name
+FROM person p,person m
+WHERE p.manager_id=m.id;
