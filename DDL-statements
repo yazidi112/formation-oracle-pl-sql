@@ -33,6 +33,49 @@ constraint city3_pk primary key(id)
 );
 
 --------- other example
+DROP TABLE departement;
+
+CREATE TABLE departement (
+id number primary key,
+title varchar2(255)
+);
+
+INSERT INTO departement VALUES (1,'IT');
+INSERT INTO departement VALUES (2,'Accounting');
+INSERT INTO departement VALUES (3,'RH');
+
+SELECT * FROM departement;
+
+------------
+DROP TABLE local;
+
+CREATE TABLE local (
+id number primary key,
+title varchar2(255)
+);
+
+INSERT INTO local VALUES (1,'loc 1');
+INSERT INTO local VALUES (2,'loc 2');
+
+SELECT * FROM local;
+
+-----------
+DROP TABLE city;
+
+CREATE TABLE city (
+id number primary key,
+name varchar2(100)
+);
+
+INSERT INTO city VALUES (1,'casablanca');
+INSERT INTO city VALUES (2,'rabat');
+INSERT INTO city VALUES (3,'oujda');
+
+SELECT * FROM city;
+
+-------------
+DROP TABLE person;
+
 CREATE TABLE person (
 id number,
 name varchar2(100) NOT NULL,
@@ -41,54 +84,36 @@ email varchar2(100),
 salary number DEFAULT 3000,
 sexe char(1),
 id_city number,
+id_dept number,
+id_local number,
 CONSTRAINT person_pk PRIMARY KEY(id),
-CONSTRAINT email_uq unique(email),
-CONSTRAINT sexe_ck check (sexe in ('H','F')),
+CONSTRAINT email_uq UNIQUE(email),
+CONSTRAINT sexe_ck CHECK (sexe in ('H','F')),
 CONSTRAINT salary_ck CHECK (salary > 3000),
-CONSTRAINT city_fk FOREIGN KEY(id_city) references city(id)
+CONSTRAINT city_fk FOREIGN KEY(id_city) REFERENCES city(id),
+--By default, Oracle applies ON DELETE NO ACTION if you don't explicitly specify any action
+CONSTRAINT dept_fk FOREIGN KEY(id_dept) REFERENCES departement(id) ON DELETE SET NULL,
+CONSTRAINT local_fk FOREIGN KEY(id_local) REFERENCES local(id) ON DELETE CASCADE
 );
 
 
+DELETE FROM person;
 
-INSERT INTO city VALUES (1,'casablanca');
-INSERT INTO city VALUES (2,'rabat');
-INSERT INTO city VALUES (3,'oujda');
-
-SELECT * FROM city;
-
-INSERT INTO person VALUES (1,'imran',to_date('1987-04-10','YYYY-MM-DD'),'yazidi.mran@gmail.com',10000,'H',1);
-
--- This statement show this error: ORA-00001: unique constraint (SYSTEM.EMAIL_UQ) violated
-INSERT INTO person VALUES (2,'imran',to_date('1987-04-10','YYYY-MM-DD'),'yazidi.mran@gmail.com',10000,'H',1);
-
--- This statement show this error: ORA-02290: check constraint (SYSTEM.SALARY_CK) violated
-INSERT INTO person VALUES (2,'imran',to_date('1987-04-10','YYYY-MM-DD'),'yazidi.omar@gmail.com',2000,'H',1);
-
--- This statement show this error: ORA-02290: check constraint (SYSTEM.SEXE_CK) violated
-INSERT INTO person VALUES (2,'imran',to_date('1987-04-10','YYYY-MM-DD'),'yazidi.omar@gmail.com',12000,'x',1);
-
--- This statement show this error: ORA-02291: integrity constraint (SYSTEM.CITY_FK) violated - parent key not found
-INSERT INTO person VALUES (2,'imran',to_date('1987-04-10','YYYY-MM-DD'),'yazidi.omar@gmail.com',12000,'H',5);
-
-
-ALTER TABLE person DROP CONSTRAINT city_fk;
-ALTER TABLE person ADD CONSTRAINT city_fk FOREIGN KEY(id_city) REFERENCES city(id) ON DELETE SET NULL;
-
-
-ALTER TABLE person DROP CONSTRAINT city_fk;
-ALTER TABLE person ADD CONSTRAINT city_fk FOREIGN KEY(id_city) REFERENCES city(id) ON DELETE CASCADE;
+INSERT INTO person VALUES (1,'imran',to_date('1988-04-10','YYYY-MM-DD'),'yazidi.imran@gmail.com',12000,'H',1,2,1);
+INSERT INTO person VALUES (2,'omar',to_date('1987-02-12','YYYY-MM-DD'),'yazidi.omar2@gmail.com',8000,'H',1,1,2);
+INSERT INTO person VALUES (3,'ahmed',to_date('1985-04-20','YYYY-MM-DD'),'yazidi.ahmed@gmail.com',15000,'H',2,2,2);
 
 
 SELECT * FROM person;
-SELECT * FROM city;
 
-DELETE FROM city WHERE id=1;
+-------------------- DELETE ACTION
 
-UPDATE PERSON SET id_city=1 WHERE id=1;
 
-DESC person;
+DELETE fROM city WHERE id=1;
+DELETE FROM departement WHERE id=1;
+DELETE fROM local WHERE id=1;
 
-SELECT * FROM user_tables;
-SELECT * FROM user_constraints;
+
+
 
 
