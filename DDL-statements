@@ -1,11 +1,38 @@
 -- DDL STATEMENT
-CREATE TABLE city (
-id number primary key,
-city varchar2(100)
+-- General syntax
+
+CREATE TABLE table_name(
+coloumn1 DATA_TYPE [NULL|NOT NULL] [DEFAULT VALUE] [COLUMN_CONSTRAINTS], -- default value is null
+column2 DATA_TYPE [NULL|NOT NULL] [DEFAULT VALUE],
+...
+[TABLE_CONSTRAINTS..]
 );
 
-DESC city;
+-- EXAMPLES
 
+-- Create table with primary key using three methods
+
+CREATE TABLE city1 (
+id number primary key, -- the name of this constraint is generated automatically
+name varchar2(100)
+);
+
+-- or
+
+CREATE TABLE city2(
+id number constraint city_pk primary key,
+name varchar2(255)
+);
+
+-- or
+
+CREATE TABLE city3(
+id number,
+name varchar2(255),
+constraint city3_pk primary key(id)
+);
+
+--------- other example
 CREATE TABLE person (
 id number,
 name varchar2(100) NOT NULL,
@@ -18,7 +45,7 @@ CONSTRAINT person_pk PRIMARY KEY(id),
 CONSTRAINT email_uq unique(email),
 CONSTRAINT sexe_ck check (sexe in ('H','F')),
 CONSTRAINT salary_ck CHECK (salary > 3000),
-CONSTRAINT city_fk FOREIGN KEY(id_city) REFERENCES city(id)
+CONSTRAINT city_fk FOREIGN KEY(id_city) references city(id)
 );
 
 
