@@ -1,0 +1,19 @@
+select * from person  p join departement d on p.id_dept=d.id ;
+update person set id_dept =3 where id in (2,4);
+
+select sexe,sum(salary)
+from person
+group by cube(sexe);
+
+select coalesce(sexe,'all genders') as gender,coalesce(title,'all deprtments') as dept,sum(salary)as samsal
+from person  p 
+join departement d on p.id_dept=d.id 
+group by rollup(sexe,title);
+
+select coalesce(sexe,'all genders')as gender,coalesce(title,'all deprtments') as dept,sum(salary)as samsal
+from person  p 
+join departement d on p.id_dept=d.id 
+group by cube(sexe,title);
+
+SELECT * FROM departement;
+
