@@ -21,5 +21,38 @@ GROUP BY name,product;
 SELECT * FROM STK
 PIVOT( count(*) for (product) in ('cd','pc','dvd'));
 
+--------------------------------
+unpivot
+---------------------------
+CREATE TABLE sale_stats(
+    id INT PRIMARY KEY,
+    fiscal_year INT,
+    product_a INT,
+    product_b INT,
+    product_c INT
+);
+
+INSERT INTO sale_stats(id, fiscal_year, product_a, product_b, product_c)
+VALUES(1,2017, NULL, 200, 300);
+
+INSERT INTO sale_stats(id, fiscal_year, product_a, product_b, product_c)
+VALUES(2,2018, 150, NULL, 250);
+
+INSERT INTO sale_stats(id, fiscal_year, product_a, product_b, product_c)
+VALUES(3,2019, 150, 220, NULL);
+
+SELECT * FROM sale_stats;
+
+SELECT * FROM sale_stats
+UNPIVOT(
+    quantity  -- unpivot_clause
+    FOR product_code --  unpivot_for_clause
+    IN ( -- unpivot_in_clause
+        product_a AS 'A', 
+        product_b AS 'B', 
+        product_c AS 'C'
+    )
+);
+
 
 
