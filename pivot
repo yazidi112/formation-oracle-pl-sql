@@ -1,0 +1,25 @@
+CREATE TABLE STK (
+    name varchar2(100),
+    product varchar2(100)
+);
+
+DESC STK;
+
+INSERT INTO STK VALUES ('ahmed','cd');
+INSERT INTO STK VALUES ('ahmed','cd');
+INSERT INTO STK VALUES ('ahmed','pc');
+INSERT INTO STK VALUES ('omar','cd');
+INSERT INTO STK VALUES ('omar','dvd');
+INSERT INTO STK VALUES ('omar','pc');
+
+SELECT * FROM STK;
+
+SELECT name,product,count(product)as nbrprdct
+FROM STK
+GROUP BY name,product;
+
+SELECT * FROM STK
+PIVOT( count(*) for (product) in ('cd','pc','dvd'));
+
+
+
