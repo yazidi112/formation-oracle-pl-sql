@@ -1,0 +1,44 @@
+-- view 
+SELECT * FROM user_tables;
+
+SELECT * FROM person;
+
+CREATE VIEW person_v 
+AS
+SELECT * FROM person;
+
+SELECT * FROM person_v;
+
+INSERT INTO person_v VALUES (4,'omaro',SYSDATE,'omaro@gmail.com',9000,'H',2,2,2,2);
+
+DESC person;
+
+CREATE OR REPLACE VIEW person_v 
+AS
+SELECT * FROM person
+WITH READ ONLY;
+
+INSERT INTO person_v VALUES (5,'omaro',SYSDATE,'omaro5@gmail.com',9000,'H',2,2,2,2);
+DELETE FROM person_v WHERE id=4;
+
+CREATE OR REPLACE VIEW person_v 
+AS
+SELECT * FROM person WHERE id=2
+WITH CHECK OPTION;
+
+SELECT * FROM person_v;
+
+UPDATE person_v SET SALARY=SALARY+60 WHERE id = 2;
+UPDATE person_v SET SALARY=SALARY+60 WHERE id = 1;
+
+CREATE OR REPLACE VIEW person_analyse_v
+AS
+SELECT min(salary) minsal,max(salary) maxsal
+FROM person;
+
+SELECT * FROM person_analyse_v;
+
+UPDATE person_analyse_v SET SALARY=SALARY+60 WHERE id = 2;
+
+CREATE FORCE VIEW v_forced
+AS SELECT * FROM not_exists_table;
