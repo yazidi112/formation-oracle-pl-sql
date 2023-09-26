@@ -1,0 +1,45 @@
+-- user and privilege managment
+-- dba session
+-- to know my privileges
+select * from session_privs;
+
+create user imran identified by imran;
+grant create session to imran;
+grant create table to imran;
+grant unlimited tablespace to imran;
+
+
+create user ayoub identified by ayoub;
+grant create session,create table,unlimited tablespace to ayoub;
+
+---------------------
+
+-- imran session
+select * from session_privs;
+
+CREATE TABLE person (
+id number,
+name varchar2(100)
+);
+
+insert into test values (1,'imran');
+
+select * from test;
+
+grant select on imran.test to ayoub;
+
+grant update(name) on imran.test to ayoub;
+
+create public synonym lesperso for imran.test;
+
+------------------------
+
+-- ayoub session
+select * from imran.test;
+
+select * from lesperso;
+
+alter user ayoub identified by 0000;
+
+update imran.test set id=4 where id=1;
+update imran.test set name='med' where id=1;
